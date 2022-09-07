@@ -24,9 +24,8 @@ uploadTask.on('state_changed',
 setError(err);
 },async ()=>{
     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-        console.log('File available at', downloadURL);
         addDoc(collectionRef, {
-            created: serverTimestamp(),
+            createdAt: serverTimestamp(),
             url: downloadURL
         });
         setUrl(downloadURL);
